@@ -1,6 +1,6 @@
--- If the mysql server runs with the option --secure-file-priv, it will only export in the directory defined with this option.
--- Execute this SQL command to define the target directory and replace in this file the mention to /var/lib/mysql-files/.
--- SELECT @@global.secure_file_priv;
+-- If the mysql server runs with the option --secure-file-priv, it will only export within the directory defined with this option.
+-- Execute this SQL command `SELECT @@global.secure_file_priv;` to define the target directory and replace in this file the mention 
+-- to /tmp/obfuscated_dump/.
 
 -- gpgkeys
 SELECT
@@ -71,28 +71,28 @@ GkkO+pcgU1wQ
   modified
 FROM gpgkeys
 ORDER BY user_id
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_gpgkeys.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_gpgkeys.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- groups
 SELECT *
 FROM groups
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_groups.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_groups.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- groups_users
 SELECT *
 FROM groups_users
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_groups_users.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_groups_users.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- permissions
 SELECT *
 FROM permissions
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_permissions.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_permissions.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -107,7 +107,7 @@ SELECT
   modified
 FROM profiles
 ORDER BY user_id
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_profiles.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_profiles.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -126,14 +126,14 @@ SELECT
   modified_by
 FROM resources
 ORDER BY id
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_resources.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_resources.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- roles
 SELECT *
 FROM roles
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_roles.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_roles.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -165,7 +165,7 @@ Re0lT3cF/Epfednngsu1Z01r
   created,
   modified
 FROM secrets
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_secrets.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_secrets.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -181,6 +181,6 @@ SELECT
   modified
 FROM users
 ORDER BY id
-INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_users.txt'
+INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_users.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
