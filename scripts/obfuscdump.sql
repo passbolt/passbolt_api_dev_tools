@@ -123,10 +123,18 @@ SELECT
   created,
   modified,
   created_by,
-  modified_by
+  modified_by,
+  resource_type_id
 FROM resources
 ORDER BY id
 INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_resources.txt'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+  LINES TERMINATED BY '\n';
+
+-- resouce_types
+SELECT *
+FROM resource_types
+    INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_resource_types.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -166,6 +174,30 @@ Re0lT3cF/Epfednngsu1Z01r
   modified
 FROM secrets
 INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_secrets.txt'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+  LINES TERMINATED BY '\n';
+
+-- folders
+SELECT 0 INTO @x;
+SELECT
+    id,
+    CONCAT('obfuscated_folder_name_', (@x:=@x+1)) as name,
+    created,
+    modified,
+    created_by,
+    modified_by
+FROM folders
+ORDER BY id
+    INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_folders.txt'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+  LINES TERMINATED BY '\n';
+
+-- folders_relations
+SELECT 0 INTO @x;
+SELECT *
+FROM folders_relations
+ORDER BY id
+    INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_folders_relations.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 

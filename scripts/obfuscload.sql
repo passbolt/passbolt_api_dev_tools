@@ -7,3 +7,6 @@ LOAD DATA INFILE '/tmp/obfuscated_dump/obfusc_dump_resources.txt' INTO TABLE pas
 LOAD DATA INFILE '/tmp/obfuscated_dump/obfusc_dump_roles.txt' INTO TABLE passbolt.roles FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 LOAD DATA INFILE '/tmp/obfuscated_dump/obfusc_dump_secrets.txt' INTO TABLE passbolt.secrets FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 LOAD DATA INFILE '/tmp/obfuscated_dump/obfusc_dump_users.txt' INTO TABLE passbolt.users FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+LOAD DATA INFILE '/tmp/obfuscated_dump/obfusc_dump_folders.txt' INTO TABLE passbolt.folders FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+LOAD DATA INFILE '/tmp/obfuscated_dump/obfusc_dump_folders_relations.txt' INTO TABLE passbolt.folders_relations FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+LOAD DATA INFILE '/tmp/obfuscated_dump/obfusc_dump_resource_types.txt' INTO TABLE passbolt.resource_types FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
