@@ -1,6 +1,6 @@
 -- If the mysql server runs with the option --secure-file-priv, it will only export within the directory defined with this option.
--- Execute this SQL command `SELECT @@global.secure_file_priv;` to define the target directory and replace in this file the mention 
--- to /tmp/obfuscated_dump/.
+-- Execute this SQL command `SELECT @@global.secure_file_priv;` to define the target directory and replace in this file the mention
+-- to /var/lib/mysql-files/.
 
 -- gpgkeys
 SELECT
@@ -69,30 +69,30 @@ GkkO+pcgU1wQ
   0 as deleted,
   created,
   modified
-FROM gpgkeys
+FROM `gpgkeys`
 ORDER BY user_id
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_gpgkeys.txt'
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_gpgkeys.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- groups
 SELECT *
-FROM groups
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_groups.txt'
+FROM `groups`
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_groups.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- groups_users
 SELECT *
-FROM groups_users
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_groups_users.txt'
+FROM `groups_users`
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_groups_users.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- permissions
 SELECT *
-FROM permissions
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_permissions.txt'
+FROM `permissions`
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_permissions.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -105,9 +105,9 @@ SELECT
   CONCAT('obfuscated_lastname_', (@x)) as lastname,
   created,
   modified
-FROM profiles
+FROM `profiles`
 ORDER BY user_id
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_profiles.txt'
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_profiles.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -125,23 +125,23 @@ SELECT
   created_by,
   modified_by,
   resource_type_id
-FROM resources
+FROM `resources`
 ORDER BY id
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_resources.txt'
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_resources.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- resouce_types
 SELECT *
-FROM resource_types
-    INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_resource_types.txt'
+FROM `resource_types`
+    INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_resource_types.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- roles
 SELECT *
-FROM roles
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_roles.txt'
+FROM `roles`
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_roles.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -172,8 +172,8 @@ Re0lT3cF/Epfednngsu1Z01r
 -----END PGP MESSAGE-----' as data,
   created,
   modified
-FROM secrets
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_secrets.txt'
+FROM `secrets`
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_secrets.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -186,18 +186,18 @@ SELECT
     modified,
     created_by,
     modified_by
-FROM folders
+FROM `folders`
 ORDER BY id
-    INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_folders.txt'
+    INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_folders.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- folders_relations
 SELECT 0 INTO @x;
 SELECT *
-FROM folders_relations
+FROM `folders_relations`
 ORDER BY id
-    INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_folders_relations.txt'
+    INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_folders_relations.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
@@ -211,8 +211,8 @@ SELECT
   deleted,
   created,
   modified
-FROM users
+FROM `users`
 ORDER BY id
-INTO OUTFILE '/tmp/obfuscated_dump/obfusc_dump_users.txt'
+INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_users.txt'
   FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
