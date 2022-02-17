@@ -27,7 +27,7 @@ Create an archive of the exported files:
 
 ```
 cd $HOME
-tar czf obfuscdump.tar.gz /var/lib/mysql-files
+sudo tar czf obfuscdump.tar.gz /var/lib/mysql-files
 ```
 
 ### Import an obfuscated dump
