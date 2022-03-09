@@ -43,14 +43,14 @@ sudo tar xzf obfuscdump.tar.gz /var/lib/mysql-files/
 sudo chown -R mysql:mysql /var/lib/mysql-files
 ```
 
-Connect as root user to your MySQL / MariaDB database and source the `obfuscdump.sql` script (replace `your-passbolt-database-name` with your passbolt database name):
+Connect as root user to your MySQL / MariaDB database and source the `obfuscload.sql` script (replace `your-passbolt-database-name` with your passbolt database name):
 
 ```
 mysql -u root -p your-passbolt-database-name
 ```
 
-Then source the `obfuscdump.sql` script:
+Then source the `obfuscload.sql` script:
 
 ```
-source /var/lib/mysql-files/obfuscdump.sql
+source /var/lib/mysql-files/obfuscload.sql
 ```
