@@ -223,7 +223,6 @@ INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_users.txt'
   LINES TERMINATED BY '\n';
 
 -- actions
-SELECT 0 INTO @x;
 SELECT * 
 FROM `actions` 
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_actions.txt'
@@ -231,7 +230,6 @@ FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- action_logs
-SELECT 0 INTO @x;
 SELECT * 
 FROM `action_logs` 
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_action_logs.txt'
@@ -239,7 +237,6 @@ FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- entities_history
-SELECT 0 INTO @x;
 SELECT * 
 FROM `entities_history` 
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_entities_history.txt'
@@ -247,15 +244,13 @@ FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- permissions_history
-SELECT 0 INTO @x;
 SELECT * 
-FROM` permissions_history` 
+FROM `permissions_history` 
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_permissions_history.txt'
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- secret_accesses
-SELECT 0 INTO @x;
 SELECT * 
 FROM `secret_accesses` 
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_secret_accesses.txt'
@@ -263,16 +258,13 @@ FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- secrets_history
-SELECT 0 INTO @x;
 SELECT * 
 FROM `secrets_history`
-
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_secrets_history.txt'
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
 
 -- phinxlog
-SELECT 0 INTO @x;
 SELECT * 
 FROM `phinxlog` 
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_phinxlog.txt'
