@@ -17,6 +17,7 @@ TRUNCATE TABLE passbolt.permissions_history;
 TRUNCATE TABLE passbolt.secret_accesses;
 TRUNCATE TABLE passbolt.secrets_history;
 TRUNCATE TABLE passbolt.phinxlog;
+TRUNCATE TABLE passbolt.tags;
 LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_gpgkeys.txt' INTO TABLE passbolt.gpgkeys FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_groups.txt' INTO TABLE passbolt.groups FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_groups_users.txt' INTO TABLE passbolt.groups_users FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
@@ -36,3 +37,4 @@ LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_permissions_history.txt' INTO
 LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_secret_accesses.txt' INTO TABLE passbolt.secret_accesses FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_secrets_history.txt' INTO TABLE passbolt.secrets_history FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
 LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_phinxlog.txt' INTO TABLE passbolt.phinxlog FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+LOAD DATA INFILE '/var/lib/mysql-files/obfusc_dump_tags.txt' INTO TABLE passbolt.tags FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
