@@ -270,3 +270,15 @@ FROM `phinxlog`
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_phinxlog.txt'
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n';
+
+-- tags
+SELECT 0 INTO @x;
+SELECT
+    id,
+    CONCAT('obfuscated_tag_slug_', (@x:=@x+1)) as slug,
+    is_shared
+FROM `tags`
+ORDER BY id
+    INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_tags.txt'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+  LINES TERMINATED BY '\n';
