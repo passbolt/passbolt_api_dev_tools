@@ -129,7 +129,8 @@ SELECT
   modified,
   created_by,
   modified_by,
-  resource_type_id
+  resource_type_id,
+  expired
 FROM `resources`
 ORDER BY id
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_resources.txt'
@@ -215,7 +216,8 @@ SELECT
   active,
   deleted,
   created,
-  modified
+  modified,
+  disabled
 FROM `users`
 ORDER BY id
 INTO OUTFILE '/var/lib/mysql-files/obfusc_dump_users.txt'
